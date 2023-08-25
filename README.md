@@ -1,4 +1,4 @@
-# Flask_Test
+# Flask Chat
 
 Web-SocketIO project, mini chat in order to understand full-duplex and bi-directional connections in Flask.
 I want to create this chat with using 
