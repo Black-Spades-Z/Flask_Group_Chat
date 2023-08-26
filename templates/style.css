@@ -11,13 +11,44 @@ ul {
     padding: 0;
 }
 .main-header {
-
+    width: 100%;
     display: flex;
     background-color: SlateBlue;
     margin: 0px;
     padding: 0px;
     height: 100px;
     align-items: center;
+    max-height: 100px;
+    min-width: 100px;
+
+}
+
+.main-ul {
+    flex-grow: 1;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    text-align-all: center;
+    width: 50%;
+}
+
+.main-ul li{
+    display: inline;
+
+}
+.main-ul li:first-child{
+    display: inline-block;
+
+}
+
+.main-ul li:last-child{
+    float: right;
+    margin-top: 1.3em;
+    text-align: center;
+    vertical-align: center;
+    padding-right: 1em;
+    width: 50%;
 
 }
 
@@ -35,9 +66,8 @@ ul {
 }
 
 .btn.back {
-    width: 10%;
     float: left;
-    padding-right: 0.5em;
+    padding-right: 1em;
     cursor: pointer;
 }
 
@@ -51,7 +81,6 @@ ul {
 
 .chat-name {
     margin-left: 0.5em;
-    width: 50%;
     text-align-all: center;
     cursor: pointer;
 
@@ -59,7 +88,7 @@ ul {
 
 .btn.menu {
 
-    width: 10%;
+
     float: right;
     margin-right: 0;
     align-items: end;
