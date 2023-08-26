@@ -1,0 +1,75 @@
+* {
+    font-family: SansSerif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+.main-header {
+
+    display: flex;
+    background-color: SlateBlue;
+    margin: 0px;
+    padding: 0px;
+    height: 100px;
+    align-items: center;
+
+}
+
+
+.btn {
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    height: 50px;
+    width: 50px;
+    border: none;
+
+}
+.btn img {
+    height: 20px;
+}
+
+.btn.back {
+    width: 10%;
+    float: left;
+    padding-right: 0.5em;
+    cursor: pointer;
+}
+
+
+.avatar {
+    background-color: darkorchid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.chat-name {
+    margin-left: 0.5em;
+    width: 50%;
+    text-align-all: center;
+    cursor: pointer;
+
+}
+
+.btn.menu {
+
+    width: 10%;
+    float: right;
+    margin-right: 0;
+    align-items: end;
+    padding-right: 0.5em;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: DarkSlateBlue ;
+}
+
+
+
