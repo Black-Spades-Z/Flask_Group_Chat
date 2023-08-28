@@ -22,5 +22,6 @@ Redis And I will try to add even MongoDB, just in learning purposes. )
 
 #Room Page
 
-![image](https://github.com/Black-Spades-Z/Flask_Group_Chat/assets/98017802/a4e47282-b961-4bb8-ae91-f063991122b6)
+![image](https://github.com/Black-Spades-Z/Flask_Group_Chat/assets/98017802/a2d5d3b3-99d9-4e36-a541-fe656598eb20)
+
 
