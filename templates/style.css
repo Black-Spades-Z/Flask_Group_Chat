@@ -14,7 +14,7 @@ html, body {
 
 .main-header {
     width: 100%;
-    height: 20%;
+    height: 10%;
 
     margin: 0px;
     padding: 0px;
@@ -32,7 +32,7 @@ html, body {
     text-align: left;
 
 
-    background-color: SlateBlue;
+
 }
 
 .main-header.back-block {
@@ -43,6 +43,8 @@ html, body {
 
 .main-header.avatar-block {
     width: 10%;
+    border-radius: 50%;
+
 
 }
 
@@ -70,10 +72,16 @@ html, body {
 
 .btn {
     padding: 0;
-    background-color: rgba(255, 255, 255, 0);
     height: 50px;
     width: 50px;
     border: none;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    background-color: #5A0881;
 
 }
 .btn img {
@@ -119,11 +127,15 @@ html, body {
     background-color: DarkSlateBlue ;
 }
 
+.main-container.room{
+    width: 50%;
+    height: 70%;
+}
 
 
 .text-field {
     width: 100%;
-    height: 85%;
+    height: 550px;
     margin: 0;
     padding: 0;
 
@@ -134,14 +146,16 @@ html, body {
     overflow: auto;
 
     background-image: url("images/background.jpg");
+    background-color: rgba(153, 50, 204, 80%);
+    background-blend-mode: multiply;
 
 }
 
 
 .footer {
 
-    position: absolute;
-    bottom: 0;
+    position: relative;
+
 
     width: 100%;
     height: 5%;
@@ -154,7 +168,17 @@ html, body {
     align-items: center;
     text-align: center;
 
-    background-color: SlateBlue;
+
+}
+
+.btn.submit.send {
+    width: 70px;
+
+    margin: 0;
+    margin-left: 0.5em;
+
+    padding: 0;
+
 }
 
 .inputs {
