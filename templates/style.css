@@ -208,7 +208,7 @@ html, body {
     padding: 0;
 }
 
-#chat-name{
+#main-name{
     padding-top: 1em;
     font-weight: bold;
     font-size: 2.5em;
@@ -241,6 +241,13 @@ html, body {
 
 }
 
+.btn.submit.back {
+    position: relative;
+    float:right;
+    width: 50px;
+    bottom: 10em;
+    right: 31em;
+}
 
 
 .btn.submit:hover {
