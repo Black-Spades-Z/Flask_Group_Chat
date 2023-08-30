@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" async></script>
         <title>Room</title>
     </head>
     <body style="background-color: SlateBlue">
@@ -20,7 +21,7 @@
                         <h2  class="chat-name" > Name of Chat </h2>
                     </div>
                     <div class="main-header menu-block">
-                         <button class="btn menu" type="button"> <img src="images/menu.png"> </button>
+                         <button id="button-menu", class="btn menu" type="button"> <img src="images/menu.png"> </button>
                     </div>
                    </div>
                 </li>
@@ -80,7 +81,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="menu-bar">
+            <div id="menu-bar", class="menu-bar" , style="display: none">
                 <ul>
                     <li>
                         <button class="btn delete">Delete chat ❌</button>
