@@ -1,22 +1,29 @@
-from flask import Flask, request, render_template, redirect, url_for, session
-from flask_socketio import SocketIO
-
-
-# def main():
-#     print("Hello World!")
-#
-# # Press the green button in the gutter to run the script.
-#
-#     main()
-
+from flask import Flask, render_template
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
+
 
 @app.route('/')
-
 def index():
-    return "Hello World!"
+    return render_template('home.html')
+
+@app.route('/join-page')
+def join_page():
+    return render_template('join.html', **vars())
+
+@app.route('/create-page')
+def create_page():
+    return render_template('create.html', **vars())
+
+@app.route('/room')
+
+@socketio.event
+def my_event(message):
+    emit('my response', {'data': 'got it!'})
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app, debug =True, allow_unsafe_werkzeug=True)

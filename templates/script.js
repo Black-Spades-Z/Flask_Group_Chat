@@ -20,4 +20,15 @@ function ready() {
         }
     //
     })
+
+    var join_page_button = document.getElementById('join_page_btn')
+    join_page_button.addEventListener('click', to_join_page)
+
+}
+
+function to_join_page() {
+    console.log('Working bitch')
+    window.location.href('join-page')
+    var name = document.getElementById('inputName').getValue()
+    console.log(name)
 }
