@@ -16,6 +16,6 @@ def create_page():
     return render_template('create.html', **vars())
 
 @main.route('/room')
-
 def create_room():
+
     return render_template('room.html', **vars())
