@@ -11,16 +11,80 @@
                     <h1 id="main-name">Free Flask Chat 💬 </h1>
                 </li>
                 <li>
-                    <input id ="inputName", class="inputs name", type="text", placeholder="Enter your name">
+                    <input id ="inputName", class="inputs name", type="text", placeholder="Enter your name", value="">
                 </li>
 
                 <li>
                     <button class="btn submit join", type="button" , id ='join_page_btn'> JOIN </button>
-                    <button class="btn submit create",type="button"> CREATE</button>
+                    <button class="btn submit create",type="button", id = 'create_page_btn'> CREATE</button>
                 </li>
             </ul>
         </div>
-      {% include 'client.html' %}
+      {% include 'socket.html' %}
+    <script>
+
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
+
+            ready()
+        }
+
+        var NAME = ''
+
+        function ready() {
+            join_page_btn = document.getElementById('join_page_btn')
+            create_page_btn = document.getElementById('create_page_btn')
+            user_name = document.getElementById('inputName')
+            NAME = user_name.value
+            user_name.addEventListener('change', function (){
+                NAME = user_name.value
+            })
+            console.log(NAME)
+                join_page_btn.addEventListener('click', function () {
+                    if (NAME != "") {
+                        console.log('Before connection')
+                        socket.connect();
+                        console.log('After connection')
+
+                        socket.on('connect', function () {
+                            console.log('In connect')
+                            socket.emit('user-data', NAME)
+                            window.location.href = '/join-page'
+                        })
+
+                    }
+                    else {
+                        alert_function()
+                    }
+
+                })
+                create_page_btn.addEventListener('click', function () {
+
+                     if (NAME != "") {
+                        console.log('Before connection')
+                        socket.connect();
+                        console.log('After connection')
+
+                        socket.on('connect', function () {
+                            console.log('In connect')
+                            socket.emit('user-data', NAME)
+                            window.location.href = '/create-page'
+                        })
+
+                    } else {
+                         alert_function()
+                     }
+                })
+            }
+        function alert_function()
+        {
+            console.log('Enter your name first')
+            alert('Enter the name please ) ')
+        }
+
+
+    </script>
     </body>
 </html>
 

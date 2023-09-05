@@ -1,4 +1,5 @@
 from extensions import socketio
+from datetime import datetime
 from flask import request
 from flask_socketio import emit
 
@@ -13,5 +14,5 @@ def handle_connect():
 
 @socketio.on('user-data')
 def get_user(username):
-    print(f'User,{username} has entered . . .')
+    print(f'User,{username} has entered at {datetime.now()}')
     
