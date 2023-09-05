@@ -11,16 +11,52 @@
                     <h1 id="main-name">Create a Chat 💬</h1>
                 </li>
                 <li>
-                    <input class="inputs create-chat-name",type="text", placeholder="Enter chat name">
+                    <input class="inputs create-chat-name",type="text", placeholder="Enter chat name", value="", id="inputRoomName">
                 </li>
                 <li>
-                    <button id="create-room", class="btn submit create-chat",type="button">CREATE</button>
+                    <button id="create_btn", class="btn submit create-chat",type="button">CREATE</button>
                 </li>
             </ul>
 
              <button onclick="location.href='/'", class="btn submit back",type="button"> <img src="../static/styles/images/back.png"></button>
         </div>
+        {% include 'socket.html' %}
+        <script>
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
 
+            ready()
+        }
+
+
+
+        function ready(){
+            room_name = document.getElementById('inputRoomName')
+
+            var ROOM_NAME = room_name.value
+
+            room_name.addEventListener('change', function () {
+                ROOM_NAME = room_name.value
+            })
+
+            create_btn = document.getElementById('create_btn')
+            create_btn.addEventListener('click', function () {
+                if (ROOM_NAME != ""){
+                    console.log(ROOM_NAME)
+                    socket.emit('join', { 'room_name' : ROOM_NAME, 'user_id' : socket.user_id})
+                    console.log('created')
+                }else{
+                    alert_function()
+                }
+            })
+        }
+        function alert_function()
+        {
+            console.log('Enter your name first')
+            alert('Enter the name please ) ')
+        }
+    </script>
 
     </body>
 </html>

@@ -33,6 +33,9 @@
         var NAME = ''
 
         function ready() {
+
+            USER_ID = socket.user_id
+            console.log('User id = ' + USER_ID)
             join_page_btn = document.getElementById('join_page_btn')
             create_page_btn = document.getElementById('create_page_btn')
             user_name = document.getElementById('inputName')
@@ -47,9 +50,14 @@
                         socket.connect();
                         console.log('After connection')
 
+
                         socket.on('connect', function () {
                             console.log('In connect')
-                            socket.emit('user-data', NAME)
+
+                            socket.emit('user-data', {
+                                "username" : NAME,
+                                "user_id" : USER_ID
+                            })
                             window.location.href = '/join-page'
                         })
 
@@ -68,7 +76,10 @@
 
                         socket.on('connect', function () {
                             console.log('In connect')
-                            socket.emit('user-data', NAME)
+                             socket.emit('user-data', {
+                                "username" : NAME,
+                                "user_id" : USER_ID
+                            })
                             window.location.href = '/create-page'
                         })
 

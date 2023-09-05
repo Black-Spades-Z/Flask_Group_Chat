@@ -12,10 +12,10 @@
                     <h1 id="main-name">Join the Chat 💬</h1>
                 </li>
                 <li>
-                    <input class="inputs create-chat-name",type="text", placeholder="Enter chat ID">
+                    <input class="inputs create-chat-name",type="text", placeholder="Enter chat ID", id = 'inputRoomName', value="">
                 </li>
                 <li>
-                    <button class="btn submit join-chat",type="submit", name = 'join'>JOIN</button>
+                    <button class="btn submit join-chat",type="button", id = "join_btn" >JOIN</button>
                 </li>
             </ul>
 
@@ -23,8 +23,34 @@
         </div>
         {% include 'socket.html' %}
     <script>
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
+
+            ready()
+        }
 
 
+
+        function ready(){
+            room_name = document.getElementById('inputRoomName')
+
+            var ROOM_NAME = room_name.value
+
+            join_btn = document.getElementById('join_btn')
+            join_btn.addEventListener('click', function () {
+                if (ROOM_NAME != ""){
+
+                }else{
+                    alert_function()
+                }
+            })
+        }
+        function alert_function()
+        {
+            console.log('Enter your name first')
+            alert('Enter the name please ) ')
+        }
     </script>
 
     </body>
