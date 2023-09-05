@@ -1,0 +1,25 @@
+<script>
+
+  const socket = io({autoConnect: false});
+
+    join_page_btn =  document.getElementById('join_page_btn')
+    if (join_page_btn) {
+        join_page_btn.addEventListener('click', function () {
+
+            console.log('Before connection')
+            socket.connect();
+            console.log('After connection')
+
+            socket.on('connect', function () {
+                console.log('In connect')
+                socket.emit('user-data', 'Anthon')
+            })
+
+
+
+        })
+    }
+
+
+
+</script>

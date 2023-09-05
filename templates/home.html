@@ -20,21 +20,7 @@
                 </li>
             </ul>
         </div>
-        <script>
-     const socket = io({autoConnect: false});
-
-    join_page_btn =  document.getElementById('join_page_btn')
-    if (join_page_btn) {
-        join_page_btn.addEventListener('click', function () {
-
-            socket.connect();
-            socket.on("connect", function () {
-                socket.emit("message", "Hi working");
-            })
-
-        })
-    }
-        </script>
+      {% include 'client.html' %}
     </body>
 </html>
 
