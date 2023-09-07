@@ -20,7 +20,7 @@
 
              <button onclick="location.href='/'", class="btn submit back",type="button"> <img src="../static/styles/images/back.png"></button>
         </div>
-        {% include 'socket.html' %}
+
         <script>
         if (document.readyState == 'loading') {
             document.addEventListener('DOMContentLoaded', ready)
@@ -30,8 +30,12 @@
         }
 
 
+        
 
         function ready(){
+
+
+
             room_name = document.getElementById('inputRoomName')
 
             var ROOM_NAME = room_name.value
@@ -44,8 +48,13 @@
             create_btn.addEventListener('click', function () {
                 if (ROOM_NAME != ""){
                     console.log(ROOM_NAME)
-                    socket.emit('join', { 'room_name' : ROOM_NAME, 'user_id' : socket.user_id})
+                    console.log(socket.user_id)
+                    socket.emit("join", {
+                        "room_name" : ROOM_NAME,
+                        "user_id" : socket.user_id
+                    })
                     console.log('created')
+                    window.location.href = '/room'
                 }else{
                     alert_function()
                 }

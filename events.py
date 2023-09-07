@@ -6,7 +6,7 @@ from flask import request
 from flask_socketio import emit, join_room, leave_room
 
 
-users = []
+users = {}
 
 @socketio.event
 def my_event(message):
@@ -19,14 +19,13 @@ def handle_connect():
 
 @socketio.on('user-data')
 def get_user(data):
-    print('In get_user')
-    print(type(data))
     username = data['username']
     user_id = data['user_id']
-    users.append({
+    users.update({
          user_id : username,
     })
-    print(f'User,{username} has entered at {datetime.now()}')
+    print(f'User : {username} '
+          f'\nDate: {datetime.now()}\n')
 
 @socketio.on('announce')
 def send_announce(announcement):
@@ -34,12 +33,13 @@ def send_announce(announcement):
 
 @socketio.on('join')
 def join_room(data):
+    print('In join Room')
     room_name = data['room_name']
     print(data['user_id'])
-    for user in users:
-        print(user)
-        print(user.keys)
-        if data['user_id'] == user.keys:
-            username = user[data['user_id']]
+    for id in users.keys():
+        if data['user_id'] == id:
+            username = users[id]
+            print(username)
+
     join_room(room_name)
     emit('announce', f'{username} has entered to room : {room_name}')
