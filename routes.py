@@ -15,7 +15,7 @@ def join_page():
 def create_page():
     return render_template('create.html', **vars())
 
-@main.route('/room')
-def create_room():
-
+@main.route('/room/<room_id>')
+def create_room(room_id):
+    print(room_id)
     return render_template('room.html', **vars())
