@@ -91,17 +91,47 @@ function ready(){
 
 
         let USER_ID = socket.user_id
+        let USERNAME = window.localStorage.getItem('username')
+        let ROOM_NAME = window.localStorage.getItem('room_name')
+
         console.log('User id = ' + USER_ID )
 
         socket.on('connect', function () {
             console.log('In connect')
 
             socket.emit('user-data', {
-                "username" : window.localStorage.getItem('username'),
+                "username" : USERNAME,
                 "user_id" : USER_ID
+            })
+            socket.emit('join', {
+                "username" : USERNAME,
+                "user_id" : USER_ID,
+                "room_name" : ROOM_NAME
             })
 
         })
+
+        let message = ''
+
+        send_btn = document.getElementById('send_btn')
+        msg_box = document.getElementById('msg_box')
+
+        msg_box.addEventListener('change', function (){
+            message = msg_box.value
+        })
+
+        send_btn.addEventListener('click', function (){
+            console.log('Send')
+            console.log(ROOM_NAME)
+            socket.emit('message', {
+                "user" : USERNAME,
+                "room_name" : ROOM_NAME,
+                "message" : message
+            } )
+            message = ''
+            msg_box.value = ''
+        })
+
     }
 
 }
